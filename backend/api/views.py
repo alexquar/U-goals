@@ -33,6 +33,6 @@ class GoalDelete(generics.DestroyAPIView):
         return Goal.objects.filter(author=user) 
 
 class CreateUserView(generics.CreateAPIView):
-    queryset = User.objaects.all()
+    queryset = User.objects.all()
     serializer_class=UserSerializer
     permission_classes = [AllowAny] #anyone can create
