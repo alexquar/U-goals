@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
     
 
-class GoalsSerializer(serializers.ModelSerializer):
+class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
         fields = ('title','about','complete_by','created_at', 'author')
