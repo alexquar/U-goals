@@ -9,6 +9,7 @@ function Form({ route, method }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [error,setError] = useState(null)
     const navigate = useNavigate();
 
     const name = method === "login" ? "Login" : "Signup";
@@ -26,8 +27,8 @@ function Form({ route, method }) {
             } else {
                 navigate("/login")
             }
-        } catch (error) {
-            alert(error)
+        } catch (err) {
+           setError(err)
         } finally {
             setLoading(false)
         }
@@ -54,6 +55,7 @@ function Form({ route, method }) {
             <button className="form-button" type="submit">
                 {name}
             </button>
+            {error && <div>{error}</div>}
         </form>
     );
 }
