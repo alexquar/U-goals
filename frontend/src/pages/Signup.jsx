@@ -1,8 +1,8 @@
-
+import Form from "../components/Form"
 export default function Signup() {
   return (
     <div>
-      Signup
+      <Form route="/api/user/signup" method="signup" />
     </div>
   )
 }
