@@ -1,14 +1,14 @@
 import axios from "axios";
 import { ACCESS_TOKEN } from "./constants";
 
+const apiUrl = "/choreo-apis/awbo/backend/rest-api-be2/v1.0";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
 });
 
 api.interceptors.request.use(
   (config) => {
-    //check for auth token in storage if there is one add it to the header of and reqs
     const token = localStorage.getItem(ACCESS_TOKEN);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
