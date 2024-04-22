@@ -17,5 +17,5 @@ class UserSerializer(serializers.ModelSerializer):
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goal
-        fields = ['title','about','complete_by','created_at', 'author']
+        fields = ['id','title','about','complete_by','created_at', 'author']
         extra_kwargs = {"author":{"read_only":True}} #sets the author prop to be read only

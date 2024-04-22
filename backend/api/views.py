@@ -8,11 +8,12 @@ from .models import Goal
 
 #class for creating goals
 class GoalCreate(generics.ListCreateAPIView):
-    serialize_class=GoalSerializer
+    serializer_class=GoalSerializer
     permission_classes=[IsAuthenticated] #has to be authenticated
     
     def get_queryset(self):
         user=self.request.user
+        print(user)
         return Goal.objects.filter(author=user) #filters for goals made by the current user
     def perform_create(self,serializer):
         #we want to do some custom creating here so we have to override the default
